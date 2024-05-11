@@ -175,7 +175,8 @@
             <button type="submit">Register</button>
         <?php echo form_close(); ?>
         <div class="login-link">
-            Already have an account? <a href="<?php echo base_url('index.php/auth/login'); ?>">Log in</a>
+            Already have an account? 
+            <?php echo anchor ('http://localhost/w1809833_CW/Advanced_ServerSide_CW/index.php/auth/login', 'Login Here'); ?>
         </div>
     </div>
 </body>

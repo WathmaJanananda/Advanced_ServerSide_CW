@@ -5,22 +5,19 @@ class Auth extends CI_Controller {
     
     public function __construct() {
         parent::__construct();
-        $this->load->model('Auth_model');
         $this->load->helper('url');
+        $this->load->model('Auth_model');
         $this->load->database();
         $this->load->library('form_validation');
         $this->load->library('session');
-
-        
     }
 
     public function register() {
-        $this->load->library('form_validation');
-        $this->form_validation->set_rules('username', 'Username', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[users.username]');
         $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
 
-        if ($this->form_validation->run() == FALSE) {
+        if ($this->form_validation->run() === FALSE) {
             $this->load->view('register');
         } else {
             $this->Auth_model->register_user();
@@ -29,20 +26,39 @@ class Auth extends CI_Controller {
     }
 
     public function login() {
-        $this->load->library('form_validation');
+        $this->load->view('login');
+    }
+
+    public function login_api() {
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
-
+    
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('login');
+            $response = array(
+                'success' => false,
+                'message' => validation_errors()
+            );
+            $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($response));
         } else {
             if ($this->Auth_model->login_user()) {
-                redirect('dashboard/index');
+                $user_id = $this->session->userdata('user_id');
+                $response = array(
+                    'success' => true,
+                    'message' => 'Login successful',
+                    'user_id' => $user_id
+                );
             } else {
-                $this->session->set_flashdata('error', 'Invalid username or password');
-                redirect('auth/login');
+                $response = array(
+                    'success' => false,
+                    'message' => 'Invalid username or password'
+                );
             }
         }
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($response));
     }
 
     public function logout() {

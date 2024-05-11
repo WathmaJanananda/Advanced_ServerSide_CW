@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
-        body {
+         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -169,18 +170,65 @@
 <div class="login-page">
     <div class="form">
         <h2>Login</h2>
-        <?php echo validation_errors(); ?>
-        <?php if ($this->session->flashdata('error')) : ?>
-            <div class="error"><?php echo $this->session->flashdata('error'); ?></div>
-        <?php endif; ?>
-        <?php echo form_open('auth/login'); ?>
+        <div id="message"></div>
+        <form id="loginForm">
             <input type="text" name="username" placeholder="Username"><br>
             <input type="password" name="password" placeholder="Password"><br>
             <button type="submit">Login</button>
-        <?php echo form_close(); ?>
+        </form>
         <div class="login-link">
-            Don't have an account?  <a href="<?php echo base_url('/'); ?>">Sign Up</a>
+            Don't have an account?  <a href="<?php echo base_url('auth/register'); ?>">Sign Up</a>
         </div>
     </div>
 </body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js"></script>
+<script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"></script>
+<script>
+var LoginModel = Backbone.Model.extend({
+    
+    defaults: {
+        username: '',
+        password: ''
+    }
+});
+
+var LoginView = Backbone.View.extend({
+    el: "#loginForm",
+    events: {
+        'submit': 'saveUser'
+    },
+
+    initialize: function(){
+        this.model = new LoginModel();
+    },
+
+    saveUser: function(event){
+        event.preventDefault();
+        var username = this.$('input[name="username"]').val();
+        var password = this.$('input[name="password"]').val();
+
+        this.model.set({username: username, password: password});
+
+        $.ajax({
+            url: 'http://localhost/w1809833_CW/Advanced_ServerSide_CW/index.php/auth/login_api',
+            type: 'POST',
+            data: this.model.toJSON(),
+            success: function(response) {
+                if (response.success) {
+                    console.log('Login successful');
+                    window.location.href = '<?php echo site_url('dashboard/index'); ?>';
+                } else {
+                    $('#message').html('<div class="error">' + response.message + '</div>');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
+    },
+});
+
+var LoginView = new LoginView();
+</script>
 </html>
