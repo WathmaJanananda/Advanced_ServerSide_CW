@@ -22,7 +22,7 @@ class Auth_model extends CI_Model {
         if ($user) {
             if (password_verify($password, $user->password)) {
                 $this->session->set_userdata('user_id', $user->user_id);
-                return true;
+                return $user->user_id;
             }
         }
         return false;

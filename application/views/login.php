@@ -172,12 +172,12 @@
         <h2>Login</h2>
         <div id="message"></div>
         <form id="loginForm">
-            <input type="text" name="username" placeholder="Username"><br>
-            <input type="password" name="password" placeholder="Password"><br>
+            <input type="text" name="username" id="username" placeholder="Username"><br>
+            <input type="password" name="password" id="password" placeholder="Password"><br>
             <button type="submit">Login</button>
         </form>
         <div class="login-link">
-            Don't have an account?  <a href="<?php echo base_url('auth/register'); ?>">Sign Up</a>
+            Don't have an account? <?php echo anchor('auth/register', 'Sign Up'); ?>
         </div>
     </div>
 </body>
@@ -204,29 +204,34 @@ var LoginView = Backbone.View.extend({
     },
 
     saveUser: function(event){
-        event.preventDefault();
-        var username = this.$('input[name="username"]').val();
-        var password = this.$('input[name="password"]').val();
+            event.preventDefault();
 
-        this.model.set({username: username, password: password});
+            this.model.set(
+                {username: this.$('#username').val(), 
+                    password: this.$('#password').val()}
+            );
 
-        $.ajax({
-            url: 'http://localhost/w1809833_CW/Advanced_ServerSide_CW/index.php/auth/login_api',
-            type: 'POST',
-            data: this.model.toJSON(),
-            success: function(response) {
-                if (response.success) {
-                    console.log('Login successful');
-                    window.location.href = '<?php echo site_url('dashboard/index'); ?>';
-                } else {
-                    $('#message').html('<div class="error">' + response.message + '</div>');
+            // Send data to the server
+            $.ajax({
+                url: 'http://localhost/w1809833_CW/Advanced_ServerSide_CW/index.php/AuthRequest/login',
+                type: 'POST',
+                data: this.model.toJSON(),
+
+                xhrFields: {
+                    withCredentials: true
+                 },
+
+                success: function(response) {
+                    console.log('Request successful');
+                    window.location.href = 'http://localhost/w1809833_CW/Advanced_ServerSide_CW/index.php/dashboard/index';
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error saving data:', error);
+                    var message = 'Invalid Email or Password';
+                    $('#message').text(message).css('color', 'red').show();
                 }
-            },
-            error: function(xhr, status, error) {
-                console.error('Error:', error);
-            }
-        });
-    },
+            });
+        },
 });
 
 var LoginView = new LoginView();
