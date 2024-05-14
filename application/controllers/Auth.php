@@ -29,38 +29,6 @@ class Auth extends CI_Controller {
         $this->load->view('login');
     }
 
-    public function login_api() {
-        $this->form_validation->set_rules('username', 'Username', 'required');
-        $this->form_validation->set_rules('password', 'Password', 'required');
-    
-        if ($this->form_validation->run() == FALSE) {
-            $response = array(
-                'success' => false,
-                'message' => validation_errors()
-            );
-            $this->output
-                ->set_content_type('application/json')
-                ->set_output(json_encode($response));
-        } else {
-            if ($this->Auth_model->login_user()) {
-                $user_id = $this->session->userdata('user_id');
-                $response = array(
-                    'success' => true,
-                    'message' => 'Login successful',
-                    'user_id' => $user_id
-                );
-            } else {
-                $response = array(
-                    'success' => false,
-                    'message' => 'Invalid username or password'
-                );
-            }
-        }
-        $this->output
-            ->set_content_type('application/json')
-            ->set_output(json_encode($response));
-    }
-
     public function logout() {
         $this->session->unset_userdata('user_id');
         redirect('auth/login');
