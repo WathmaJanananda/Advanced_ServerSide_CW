@@ -10,8 +10,8 @@ class SavedQuestions extends CI_Controller {
         $this->load->library('user_agent');
     }
 
-	//This function is to save a question (This should be called from a save link)
-	// The link should be in the page where a specific question is displayed
+	//Function to save a question
+	// The page with the link need to be the one that displays a particular question
 	 
     public function save($question_id) {
         // Retrieve user ID from the session

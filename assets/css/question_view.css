@@ -1,0 +1,150 @@
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #C5DAFF;
+            color: #000000;
+            padding: 20px;
+            margin-left: 120px; /* Adjusted margin to accommodate the sidebar */
+            position: relative; /* Added position relative */
+        }
+
+        h1 {
+            color:#000000; /* Changed text color */
+            text-align: left;
+            font-size: 24px; /* Increased font size */
+            margin-bottom: 20px;
+            width: 100%; /* Ensure the heading takes full width */
+            font-weight: normal;
+        }
+
+        h2 {
+            color: #000000;
+            font-size: 19px;
+        }
+
+        h3 {
+            color: #000000;
+            font-size: 20px;
+        }
+
+        p {
+            color: #000000;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .answer {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .answer p {
+            margin-bottom: 5px;
+        }
+
+        .answer .fa-thumbs-up,
+        .answer .fa-thumbs-down {
+            color: #007bff;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        .answer .fa-thumbs-up:hover,
+        .answer .fa-thumbs-down:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #000000;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #000000;
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top:10px
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 100px; /* Adjusted width */
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #007bff; /* Blue sidebar background */
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 0 20px 0 20px; /* Rounded only top-right and bottom-right corners */
+        }
+
+        .sidebar a {
+            padding: 20px;
+            text-decoration: none;
+            font-size: 14px; /* Adjusted font size */
+            color: #ffffff; /* White icon color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .sidebar a span {
+            margin-top: 5px; /* Add space between icon and label */
+        }
+
+        /* Adjusted close button position */
+        .sidebar .close-btn {
+            align-self: flex-end;
+            margin-right: 10px;
+            font-size: 30px;
+        }
+
+        .sidebar a:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .sidebar a:hover i {
+            transform: scale(1.2); /* Scale up icon on hover */
+        }
+        
+        .save-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #007bff;
+            cursor: pointer;
+        }

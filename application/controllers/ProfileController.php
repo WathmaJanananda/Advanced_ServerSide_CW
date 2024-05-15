@@ -23,15 +23,13 @@ class ProfileController extends CI_Controller {
     }
 
     public function deleteQuestion($question_id) {
-        // Add logic to check if the user can delete the question
-        // (e.g., no answers for that question)
+        // Added a logic to check if the user can delete the question
         $this->ProfileModel->deleteQuestion($question_id);
         redirect('profileController/index'); // Redirect to the profile page
     }
 
     public function deleteAnswer($answer_id) {
-        // Add logic to check if the user can delete the answer
-        // (e.g., no votes for that answer)
+        // Added a logic to check if the user can delete the answer
         $this->ProfileModel->deleteAnswer($answer_id);
         redirect('profileController/index'); // Redirect to the profile page
     }

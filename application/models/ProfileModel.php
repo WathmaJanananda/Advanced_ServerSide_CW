@@ -24,11 +24,11 @@ class ProfileModel extends CI_Model {
     }
 
     public function deleteQuestion($question_id) {
-        // Delete associated question tags
+        //Remove related question tags
         $this->db->where('question_id', $question_id);
         $this->db->delete('question_tags');
 
-        // Delete associated answers and votes
+        // Remove related answers and votes
         $this->deleteAnswersAndVotes($question_id);
 
         // Delete saved questions (if any)
@@ -47,13 +47,13 @@ class ProfileModel extends CI_Model {
         $query = $this->db->get('answers');
         $answer_ids = $query->result_array();
 
-        // Delete associated votes
+        // Remove related votes
         foreach ($answer_ids as $answer) {
             $this->db->where('answer_id', $answer['answer_id']);
             $this->db->delete('votes');
         }
 
-        // Delete associated answers
+        // Remove related answers
         $this->db->where('question_id', $question_id);
         $this->db->delete('answers');
     }
@@ -68,8 +68,6 @@ class ProfileModel extends CI_Model {
         $this->db->where('answer_id', $answer_id);
         $this->db->delete('answers');
 
-        // You may also want to check if the question associated with the answer has no answers left and delete it if needed.
-        // Add your logic here if required.
     }
 }
 ?>

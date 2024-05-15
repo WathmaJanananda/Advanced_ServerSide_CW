@@ -1,7 +1,7 @@
 <?php
 class SavedQuestions_model extends CI_Model {
 
-	//This function is to save a question
+	//Function to save a question
     public function save_question($user_id, $question_id) {
         $data = array(
             'user_id' => $user_id,
@@ -10,7 +10,7 @@ class SavedQuestions_model extends CI_Model {
         $this->db->insert('saved_questions', $data);
     }
 
-	//This function is to view all questions
+	//Function to view all questions
     public function get_saved_questions($user_id) {
         $this->db->select('questions.*, 
                            IFNULL(votes.upvote_count, 0) AS upvote_count,
