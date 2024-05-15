@@ -20,7 +20,7 @@ class Dashboard extends CI_Controller {
     }
 
     public function search() {
-        $keyword = $this->input->post('keyword'); // Assuming the keyword is sent via POST
+        $keyword = $this->input->post('keyword'); 
         if (!empty($keyword)) {
             $data['questions'] = $this->Question_model->search_questions($keyword);
         } else {
@@ -48,7 +48,7 @@ class Dashboard extends CI_Controller {
         // Add question to the database
         $this->Question_model->add_question($data);
         
-        // Redirect to the dashboard or any other page you prefer
+        // Redirect to the dashboard or any other page that the user prefer
         redirect('dashboard');
     }
     

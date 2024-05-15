@@ -23,17 +23,37 @@ class ProfileController extends CI_Controller {
     }
 
     public function deleteQuestion($question_id) {
-        // Add logic to check if the user can delete the question
-        // (e.g., no answers for that question)
+        // Added a logic to check if the user can delete the question
         $this->ProfileModel->deleteQuestion($question_id);
         redirect('profileController/index'); // Redirect to the profile page
     }
 
     public function deleteAnswer($answer_id) {
-        // Add logic to check if the user can delete the answer
-        // (e.g., no votes for that answer)
+        // Added a logic to check if the user can delete the answer
         $this->ProfileModel->deleteAnswer($answer_id);
         redirect('profileController/index'); // Redirect to the profile page
     }
+    // Add these methods to ProfileController.php
+
+public function updatePassword() {
+    $user_id = $this->session->userdata('user_id');
+    $new_password = $this->input->post('new_password');
+
+    // Call the model method to update password
+    $this->ProfileModel->updatePassword($user_id, $new_password);
+
+    redirect('profileController/index'); // Redirect to the profile page
+}
+
+public function updateUsername() {
+    $user_id = $this->session->userdata('user_id');
+    $new_username = $this->input->post('new_username');
+
+    // Call the model method to update username
+    $this->ProfileModel->updateUsername($user_id, $new_username);
+
+    redirect('profileController/index'); // Redirect to the profile page
+}
+
 }
 ?>

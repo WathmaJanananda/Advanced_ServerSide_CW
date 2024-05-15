@@ -1,0 +1,110 @@
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #C5DAFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Heading Styles */
+        h1 {
+            color: #000;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: normal; /* Remove bold */
+        }
+
+        /* List Styles */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        li {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: inline-block; /* Display tags horizontally */
+            margin-right: 10px; /* Add some space between tags */
+        }
+
+        li:last-child {
+            margin-right: 0; /* Remove margin for the last tag */
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Link Styles */
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Paragraph Styles */
+        p {
+            color: #333;
+            margin-top: 10px;
+        }
+        /* Sidebar Styles */
+
+        .sidebar {
+            height: 100%;
+            width: 100px; /* Adjusted width */
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #007bff; /* Blue sidebar background */
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 0 20px 0 20px; /* Rounded only top-right and bottom-right corners */
+        }
+
+
+        .sidebar a {
+            padding: 20px;
+            text-decoration: none;
+            font-size: 14px; /* Adjusted font size */
+            color: #ffffff; /* White icon color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .sidebar a span {
+            margin-top: 5px; /* Add space between icon and label */
+        }
+
+        /* Adjusted close button position */
+        .sidebar .close-btn {
+            align-self: flex-end;
+            margin-right: 10px;
+            font-size: 30px;
+        }
+
+        .sidebar a:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .sidebar a:hover i {
+            transform: scale(1.2); /* Scale up icon on hover */
+        }

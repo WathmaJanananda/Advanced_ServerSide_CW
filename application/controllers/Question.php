@@ -20,13 +20,13 @@ class Question extends CI_Controller {
         $this->load->model('question_model');
         $this->load->model('answer_model');
         
-        // Get the question details
+        // Getting the question details
         $data['question'] = $this->question_model->get_question($question_id);
         
-        // Get answers for the question
+        // Getting the answers for the question
         $data['answers'] = $this->answer_model->get_answers($question_id);
         
-        // Load the view
+        // Loading the view
         $this->load->view('question_view', $data);
     }
 
@@ -39,17 +39,15 @@ class Question extends CI_Controller {
                 'user_id' => $user_id,
                 'content' => $this->input->post('answer_content'),
                 'question_id' => $question_id,
-                // Add other fields as needed
             );
 
-            // Call the model to add the answer
+            // Calling the model to add the answer
             $this->answer_model->add_answer($data);
 
             // Redirect back to the question view
             redirect('question/view/' . $question_id);
         }
 
-        // Handle the case when the form is not submitted (optional)
     }
 
     public function upvote($answer_id, $question_id) {

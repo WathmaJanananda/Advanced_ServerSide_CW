@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Question_model extends CI_Model {
 
     public function get_top_questions($limit) {
-        // Fetch top questions from the database along with upvote, downvote, and answer counts
+        // Retrieve the top questions from the database, along with the number of answers, upvotes, and downvotes
         $this->db->select('questions.*, 
             (SELECT COUNT(*) FROM votes WHERE vote_type = "upvote" AND question_id = questions.question_id) as upvote_count,
             (SELECT COUNT(*) FROM votes WHERE vote_type = "downvote" AND question_id = questions.question_id) as downvote_count,
@@ -18,7 +18,7 @@ class Question_model extends CI_Model {
     
 
     public function search_questions($keyword) {
-        // Search questions based on keyword and retrieve user name, tags, upvote count, and downvote count
+        // Use keywords to search questions and get user name, tags, upvotes, and downvotes
         $this->db->select('questions.*, 
             (SELECT COUNT(*) FROM votes WHERE vote_type = "upvote" AND question_id = questions.question_id) as upvote_count,
             (SELECT COUNT(*) FROM votes WHERE vote_type = "downvote" AND question_id = questions.question_id) as downvote_count,
@@ -32,7 +32,7 @@ class Question_model extends CI_Model {
         $this->db->like('title', $keyword);
         $this->db->or_like('tags.tag_name', $keyword); // Search within tag names
         $this->db->group_end();
-        $this->db->group_by('questions.question_id'); // Ensure distinct questions
+        $this->db->group_by('questions.question_id'); 
         $query = $this->db->get();
         $result = $query->result_array();
     
@@ -41,7 +41,7 @@ class Question_model extends CI_Model {
             return array();
         }
     
-        // Fetch and explode tags for each question separately
+        // For every question, retrieve and explode tags separately
         foreach ($result as &$question) {
             $tags = array_column($result, 'tag_name');
             $question['tags'] = $tags;
@@ -73,7 +73,7 @@ class Question_model extends CI_Model {
                 $tag_id = $tag['tag_id'];
             }
             
-            // Associate the tag with the question in the question_tags table
+            // In the question_tags table, link the tag and the question
             $this->db->insert('question_tags', array('question_id' => $question_id, 'tag_id' => $tag_id));
         }
         
