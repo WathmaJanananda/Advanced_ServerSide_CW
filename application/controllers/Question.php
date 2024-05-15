@@ -44,7 +44,7 @@ class Question extends CI_Controller {
             // Calling the model to add the answer
             $this->answer_model->add_answer($data);
 
-            // Redirect back to the question view
+            // Return to the question view after this
             redirect('question/view/' . $question_id);
         }
 
@@ -56,7 +56,7 @@ class Question extends CI_Controller {
         // Perform upvote logic
         $this->question_model->upvote_answer($answer_id, $question_id);
 
-        // Redirect back to the question view or other appropriate page
+        // Return to the question view or another suitable page
         redirect('question/view/' . $question_id);
     }
 
@@ -66,7 +66,7 @@ class Question extends CI_Controller {
         // Perform downvote logic
         $this->question_model->downvote_answer($answer_id, $question_id);
 
-        // Redirect back to the question view or other appropriate page
+        // Return to the question view or another suitable page
         redirect('question/view/' . $question_id);
     }
 }

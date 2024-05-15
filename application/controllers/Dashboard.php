@@ -48,7 +48,7 @@ class Dashboard extends CI_Controller {
         // Add question to the database
         $this->Question_model->add_question($data);
         
-        // Redirect to the dashboard or any other page that the user prefer
+        // Send the user to the dashboard or another preferred page
         redirect('dashboard');
     }
     

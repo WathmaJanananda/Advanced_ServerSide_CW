@@ -12,7 +12,7 @@
     input[type="text"] {
         font-family: 'Roboto', sans-serif;
         outline: none;
-        width: calc(100% - 250px); /* Adjusted width */
+        width: calc(100% - 250px); 
         border: 0;
         margin: 0;
         padding: 15px;
@@ -59,7 +59,7 @@
     h1, h2 {
         color: #000000;
         margin-bottom: 30px;
-        font-weight: normal; /* Remove bold */
+        font-weight: normal; 
     }
 
     /* List Styles */
@@ -68,20 +68,20 @@
         padding: 0;
         margin: 0;
         display: flex;
-        flex-wrap: wrap; /* Allow wrapping */
-        justify-content: space-between; /* Evenly distribute items */
-        max-width: 1000px; /* Adjusted max-width */
+        flex-wrap: wrap; 
+        justify-content: space-between; 
+        max-width: 1000px; 
         width: 100%;
     }
 
     li {
-        width: calc(33.33% - 10px); /* Adjusted width for three columns */
+        width: calc(33.33% - 10px); 
         margin-bottom: 20px;
         padding: 20px;
         background-color: rgba(255, 255, 255, 0.7);
         border-radius: 10px;
         transition: transform 0.3s ease;
-        box-sizing: border-box; /* Include padding in width calculation */
+        box-sizing: border-box; 
     }
 
     li:hover {
@@ -130,11 +130,11 @@
 
     @media (min-width: 600px) {
         .action-buttons {
-            justify-content: space-between; /* Space between items */
+            justify-content: space-between; 
         }
 
         input[type="text"] {
-            width: 300px; /* Adjusted width for larger screens */
+            width: 300px; 
         }
     }
 
@@ -142,27 +142,27 @@
 
     .sidebar {
         height: 100%;
-        width: 100px; /* Adjusted width */
+        width: 100px; 
         position: fixed;
         z-index: 1;
         top: 0;
         left: 0;
-        background-color: #007bff; /* Blue sidebar background */
+        background-color: #007bff; 
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 60px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        border-radius: 0 20px 0 20px; /* Rounded only top-right and bottom-right corners */
+        border-radius: 0 20px 0 20px; 
     }
 
 
     .sidebar a {
         padding: 20px;
         text-decoration: none;
-        font-size: 14px; /* Adjusted font size */
-        color: #ffffff; /* White icon color */
+        font-size: 14px; 
+        color: #ffffff; 
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -170,10 +170,9 @@
     }
 
     .sidebar a span {
-        margin-top: 5px; /* Add space between icon and label */
+        margin-top: 5px; 
     }
 
-    /* Adjusted close button position */
     .sidebar .close-btn {
         align-self: flex-end;
         margin-right: 10px;
@@ -181,17 +180,17 @@
     }
 
     .sidebar a:hover {
-        background-color: #0056b3; /* Darker blue on hover */
+        background-color: #0056b3; 
     }
 
     .sidebar a:hover i {
-        transform: scale(1.2); /* Scale up icon on hover */
+        transform: scale(1.2); 
     }
 
     /* Content Styles */
     .content {
-        max-width: 1000px; /* Adjusted max-width */
+        max-width: 1000px; 
         width: 100%;
         padding: 0 20px;
-        text-align: left; /* Left align content */
+        text-align: left; 
     }

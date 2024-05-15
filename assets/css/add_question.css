@@ -7,33 +7,33 @@
             justify-content: flex-start;
             align-items: flex-start;
             min-height: 100vh;
-            overflow: hidden; /* Prevent scroll bar */
+            overflow: hidden; 
         }
 
         .main-content {
             display: flex;
-            flex-direction: row; /* Change to row layout */
+            flex-direction: row; 
             align-items: flex-start;
-            justify-content: flex-start; /* Changed to start from the left */
-            margin-left: 100px; /* Adjusted margin to move it more to the left */
-            margin-top: 50px; /* Kept the margin-top */
-            flex: 1; /* Take remaining vertical space */
-            flex-wrap: wrap; /* Allow wrapping */
-            position: relative; /* Added relative positioning */
+            justify-content: flex-start; 
+            margin-left: 100px; 
+            margin-top: 50px; 
+            flex: 1; 
+            flex-wrap: wrap; 
+            position: relative; 
         }
 
         .container {
             max-width: 600px;
-            width: calc(60% - 70px); /* Adjusted width to fit half the available space */
+            width: calc(60% - 70px); 
             background-color: rgba(255, 255, 255, 0.7);
             padding: 20px;
             border-radius: 20px;
             box-sizing: border-box;
-            text-align: left; /* Align content to the left */
-            margin-bottom: 20px; /* Added margin at the bottom */
-            position: relative; /* Set position to relative */
-            left: -70px; /* Adjusted position to move it more to the left */
-            margin-top: 20px; /* Adjusted margin to move it closer to the note-card */
+            text-align: left; 
+            margin-bottom: 20px; 
+            position: relative; 
+            left: -70px; 
+            margin-top: 20px; 
             height: 355px;
         }
 
@@ -41,45 +41,45 @@
         .note-card {
             width: 600px;
             height: 350px;
-            background-color: rgba(255, 255, 255, 0.7); /* Adjusted background color with transparency */
-            border-radius: 20px; /* Increased border radius */
-            padding: 20px; /* Increased padding */
-            box-sizing: border-box; /* Added box-sizing to include padding in width/height */
+            background-color: rgba(255, 255, 255, 0.7); 
+            border-radius: 20px; 
+            padding: 20px; 
+            box-sizing: border-box; 
             box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-            margin-right: auto; /* Adjusted margin to move it to the left */
-            margin-left: 70px; /* Adjusted margin to move it more to the left */
+            margin-right: auto; 
+            margin-left: 70px; 
             margin-top: 20px;
             margin-bottom: 20px;
         }
 
         .note-card h2 {
-            color: #000000; /* Adjusted heading color */
-            font-size: 20px; /* Reduced heading font size */
-            margin-bottom: 15px; /* Increased margin-bottom */
+            color: #000000; 
+            font-size: 20px; 
+            margin-bottom: 15px; 
         }
 
         .note-card p {
-            color: #000000; /* Adjusted paragraph color */
-            font-size: 14px; /* Reduced paragraph font size */
-            line-height: 1.6; /* Increased line height for better readability */
+            color: #000000; 
+            font-size: 14px; 
+            line-height: 1.6; 
         }
 
         .note-card ol {
-            margin-top: 10px; /* Added margin-top for spacing */
-            padding-left: 20px; /* Adjusted padding for list items */
+            margin-top: 10px; 
+            padding-left: 20px; 
         }
 
         .note-card li {
-            margin-bottom: 10px; /* Added margin-bottom for spacing between list items */
-            font-size: 14px; /* Adjusted font size for list items */
+            margin-bottom: 10px; 
+            font-size: 14px; 
         }
 
         h1 {
-            color:#000000; /* Changed text color */
+            color:#000000; 
             text-align: left;
-            font-size: 24px; /* Increased font size */
+            font-size: 24px; 
             margin-bottom: 20px;
-            width: 100%; /* Ensure the heading takes full width */
+            width: 100%; 
             margin-left: 80px;
             font-weight: normal;
         }
@@ -93,10 +93,10 @@
             margin: 0;
             padding: 10px;
             box-sizing: border-box;
-            font-size: 16px; /* Increased font size */
+            font-size: 16px; 
             border-radius: 10px;
             background-color: rgba(255, 255, 255, 0.7);
-            color: #000000; /* Changed text color */
+            color: #000000; 
             display: block;
             margin-bottom: 15px;
             text-align: left;
@@ -123,7 +123,7 @@
         }
 
         label {
-            color: #000000; /* Changed text color */
+            color: #000000; 
             display: block;
             text-align: left;
             font-size: 15px;
@@ -132,26 +132,26 @@
 
         .sidebar {
             height: 100%;
-            width: 100px; /* Adjusted width */
+            width: 100px; 
             position: fixed;
             z-index: 1;
             top: 0;
             left: 0;
-            background-color: #007bff; /* Blue sidebar background */
+            background-color: #007bff; 
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 60px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            border-radius: 0 20px 0 20px; /* Rounded only top-right and bottom-right corners */
+            border-radius: 0 20px 0 20px; 
         }
 
         .sidebar a {
             padding: 20px;
             text-decoration: none;
-            font-size: 14px; /* Adjusted font size */
-            color: #ffffff; /* White icon color */
+            font-size: 14px; 
+            color: #ffffff; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -159,10 +159,9 @@
         }
 
         .sidebar a span {
-            margin-top: 5px; /* Add space between icon and label */
+            margin-top: 5px; 
         }
 
-        /* Adjusted close button position */
         .sidebar .close-btn {
             align-self: flex-end;
             margin-right: 10px;
@@ -170,10 +169,10 @@
         }
 
         .sidebar a:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+            background-color: #0056b3; 
         }
 
         .sidebar a:hover i {
-            transform: scale(1.2); /* Scale up icon on hover */
+            transform: scale(1.2); 
         }
  
