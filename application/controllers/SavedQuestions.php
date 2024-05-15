@@ -20,7 +20,7 @@ class SavedQuestions extends CI_Controller {
         $this->load->model('SavedQuestions_model');
         $this->SavedQuestions_model->save_question($user_id, $question_id);
 
-        // Redirect to the previous page
+        // Return to the previous page
         redirect($this->agent->referrer());
     }
 

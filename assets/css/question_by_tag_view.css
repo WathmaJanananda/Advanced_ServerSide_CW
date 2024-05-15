@@ -13,7 +13,7 @@ h1 {
     color: #000;
     font-size: 24px;
     margin-bottom: 20px;
-    font-weight: normal; /* Remove bold */
+    font-weight: normal; 
 }
 
 /* List Styles */
@@ -40,26 +40,26 @@ li:hover {
 /* Sidebar Styles */
 .sidebar {
     height: 100%;
-    width: 100px; /* Adjusted width */
+    width: 100px;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #007bff; /* Blue sidebar background */
+    background-color: #007bff; 
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 0 20px 0 20px; /* Rounded only top-right and bottom-right corners */
+    border-radius: 0 20px 0 20px; 
 }
 
 .sidebar a {
     padding: 20px;
     text-decoration: none;
-    font-size: 14px; /* Adjusted font size */
-    color: #ffffff; /* White icon color */
+    font-size: 14px; 
+    color: #ffffff; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,10 +67,9 @@ li:hover {
 }
 
 .sidebar a span {
-    margin-top: 5px; /* Add space between icon and label */
+    margin-top: 5px; 
 }
 
-/* Adjusted close button position */
 .sidebar .close-btn {
     align-self: flex-end;
     margin-right: 10px;
@@ -78,15 +77,15 @@ li:hover {
 }
 
 .sidebar a:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; 
 }
 
 .sidebar a:hover i {
-    transform: scale(1.2); /* Scale up icon on hover */
+    transform: scale(1.2); 
 }
 .content {
-    max-width: 1000px; /* Adjusted max-width */
+    max-width: 1000px; 
     width: 100%;
     padding: 0 20px;
-    text-align: left; /* Left align content */
+    text-align: left; 
 }
