@@ -48,8 +48,27 @@
     </div>
 </div>
 
+<div class="update-section">
+    <div class="update-item">
+        <h2>Update Username</h2>
+        <form action="<?php echo site_url('profileController/updateUsername'); ?>" method="post">
+            <div class="input-container">
+                <input type="text" id="new_username" name="new_username" required>
+                <button type="submit">Update Username</button>
+            </div>
+        </form>
+    </div>
 
-
+    <div class="update-item">
+        <h2>Update Password</h2>
+        <form action="<?php echo site_url('profileController/updatePassword'); ?>" method="post">
+            <div class="input-container">
+                <input type="password" id="new_password" name="new_password" required>
+                <button type="submit">Update Password</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <h2>Questions Posted</h2>
 <div class="content">

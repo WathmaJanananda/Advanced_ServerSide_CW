@@ -69,5 +69,23 @@ class ProfileModel extends CI_Model {
         $this->db->delete('answers');
 
     }
+    // Add these methods to ProfileModel.php
+
+public function updatePassword($user_id, $new_password) {
+    $data = array(
+        'password' => password_hash($new_password, PASSWORD_DEFAULT)
+    );
+    $this->db->where('user_id', $user_id);
+    $this->db->update('users', $data);
+}
+
+public function updateUsername($user_id, $new_username) {
+    $data = array(
+        'username' => $new_username
+    );
+    $this->db->where('user_id', $user_id);
+    $this->db->update('users', $data);
+}
+
 }
 ?>

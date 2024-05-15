@@ -33,5 +33,27 @@ class ProfileController extends CI_Controller {
         $this->ProfileModel->deleteAnswer($answer_id);
         redirect('profileController/index'); // Redirect to the profile page
     }
+    // Add these methods to ProfileController.php
+
+public function updatePassword() {
+    $user_id = $this->session->userdata('user_id');
+    $new_password = $this->input->post('new_password');
+
+    // Call the model method to update password
+    $this->ProfileModel->updatePassword($user_id, $new_password);
+
+    redirect('profileController/index'); // Redirect to the profile page
+}
+
+public function updateUsername() {
+    $user_id = $this->session->userdata('user_id');
+    $new_username = $this->input->post('new_username');
+
+    // Call the model method to update username
+    $this->ProfileModel->updateUsername($user_id, $new_username);
+
+    redirect('profileController/index'); // Redirect to the profile page
+}
+
 }
 ?>
